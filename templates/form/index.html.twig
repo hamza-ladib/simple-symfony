@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormController!{% endblock %}
+
+{% block body %}
+<style>
+body{
+    background: #282828;
+}
+   .formContainer{
+      width: 70vw;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+     
+      padding: 30px;
+
+
+      border: 4px solid #191919;
+    box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5),
+        inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+        inset -4px -4px 10px rgba(67, 67, 67, 0.3),
+        4px 4px 10px rgba(0, 0, 0, 0.3);
+
+   }
+   #form{
+
+  
+      display: flex;
+     justify-content: center;
+     font-family: monospace;
+   }
+   input{
+background-color: inherit;
+    outline: none;
+border: none;
+color: #ECEFF1;
+    border-bottom: 2px solid #FBC02D;
+    padding-left: 10px;
+   }
+
+   label{
+    width: 100px;
+    text-align: center;
+    color: yellow;
+
+   }
+     #form button{
+            width: 100px;
+            height: 50px;
+                
+            letter-spacing: 1px;
+            margin-left:20vw ;
+            margin-top: 10px;
+            padding: 13px 20px 13px;
+            outline: 0;
+            border: 1px solid black;
+            cursor: pointer;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0);
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+          }
+
+          #form button:after {
+            content: "";
+            background-color: #ffe54c;
+            width: 100%;
+            z-index: -1;
+            position: absolute;
+            height: 100%;
+            top: 7px;
+            left: 7px;
+            transition: 0.2s;
+          }
+
+         #form button:hover:after {
+            top: 0px;
+            left: 0px;
+          }
+
+</style>
+<div class="formContainer">
+ {{form_start(my_form,{'attr':{'id':'form'}})}}
+{{form(my_form)}}
+ {{form_end(my_form)}}
+<div>
+{% endblock %}

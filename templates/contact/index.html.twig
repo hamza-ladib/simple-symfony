@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+  h1{
+    font-size: 35px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    color: whitesmoke;
+    line-height: 2;
+  }
+  .topbar{
+    display: flex;
+    justify-content:space-evenly;
+    background-color: grey;
+  }
+   .topbar a{
+    text-decoration: none;
+    font-size: 50px;
+    color: yellow;
+  }
+</style>
+
+<div class="test">
+<div class="topbar">
+    <h1> all contacts :</h1>
+    <a href="{{ path('app_form') }}"><i class="bi bi-plus-square-fill"></i></a>
+</div>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col"> modify</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for contact  in contacts %}
+
+    <tr>
+      <th scope="row">{{contact.getId()}}</th>
+      <td>{{contact.getFirstName()}}</td>
+      <td>{{contact.getLastName()}}</td>
+      <td>{{contact.getEmail()}}</td>
+      <td>{{contact.getNumber()}}</td>
+      <td>
+<a  href="{{ path('delete_contact',{'id':contact.getId()}) }}"><button type="button" class="btn btn-danger">Del</button></a>
+<a  href="{{ path('edit_contact'  ,{'id':contact.getId()}) }}"><button type="button" class="btn btn-warning">Modify</button></td></a>
+    </tr>
+  {% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}
