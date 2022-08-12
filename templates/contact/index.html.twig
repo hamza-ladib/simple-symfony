@@ -27,11 +27,17 @@
     font-size: 50px;
     color: yellow;
   }
+  .out{
+    background-color:gold;
+    font-size: 20px;  }
+
 </style>
 
 <div class="test">
 <div class="topbar">
     <h1> all contacts :</h1>
+    <a href="{{ path('app_logoutz') }}"><button  type="submit" class=" btn out">Log Out</button></a>
+  
     <a href="{{ path('app_form') }}"><i class="bi bi-plus-square-fill"></i></a>
 </div>
 <table class="table table-dark table-striped">
@@ -47,7 +53,6 @@
   </thead>
   <tbody>
   {% for contact  in contacts %}
-
     <tr>
       <th scope="row">{{contact.getId()}}</th>
       <td>{{contact.getFirstName()}}</td>

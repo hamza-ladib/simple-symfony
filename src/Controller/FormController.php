@@ -17,6 +17,7 @@ class FormController extends AbstractController
     {
           $contact= new Contact();
            $form=$this->createForm(ContactType::class,$contact);
+
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $add = $doctrine->getManager();
@@ -58,6 +59,7 @@ $contact= $doctrine->getRepository(Contact::class)->find($id);
             $del->flush();
             return $this->redirectToRoute('app_contact');
     }
+    
 
 
 

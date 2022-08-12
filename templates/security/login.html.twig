@@ -55,10 +55,9 @@ color: #ECEFF1;
     display: flex;
     justify-content: space-around;
    }
-     #form button{
+     #form button , .btn{
             width: 130px;
             height: 50px;
-                
             letter-spacing: 1px;
             margin-left:20vw ;
             margin-top: 10px;
@@ -73,7 +72,7 @@ color: #ECEFF1;
             touch-action: manipulation;
           }
 
-          #form button:after {
+          #form button:after ,.btn:after{
             content: "";
             background-color: #ffe54c;
             width: 100%;
@@ -85,7 +84,7 @@ color: #ECEFF1;
             transition: 0.2s;
           }
 
-         #form button:hover:after {
+         #form button:hover:after, .btn:hover:after {
             top: 0px;
             left: 0px;
           }
@@ -98,11 +97,6 @@ color: #ECEFF1;
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
     <h1 class="h3 mb-3 font-weight-normal">LogIn</h1>
         <div class="labin">
     <label for="inputEmail">Email</label>
@@ -115,13 +109,13 @@ color: #ECEFF1;
 
       <div class="labin">
       <input type="hidden" name=                                                     "_csrf_token"
-    value="{{ csrf_token('authenticate') }}"</div>
-    
-    >
+    value="{{ csrf_token('authenticate') }}" >
+    </div>
+   
 
-    <button  type="submit">
-        Sign in
-    </button>
+    <button  type="submit"> log in</button>
+    
 </form>
+<a href="{{ path('app_register') }}"><button  type="submit" class="btn"> Sign in</button></a>
 </div>
 {% endblock %}
